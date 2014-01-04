@@ -1,0 +1,31 @@
+== README
+
+This application is built using rails and lets you view recent job postings from The Ohio State University through a feed provided via: https://www.jobsatosu.com/all_jobs.atom  
+It gives you the ability to paginate the results and filter them by department. 
+It also enables you to put in a search term and returns job titles that contains a matching term
+
+Ruby Version
+- This application uses ruby 2.0.0p353
+
+Database
+- no database connection is required, it uses sqlite
+
+Dependency
+- This application requires a working (lib)curl installation
+(On Ubuntu, the dependencies can be satisfied by installing the following packages:
+sudo apt-get install libcurl3 libcurl3-gnutls libcurl4-openssl-dev)
+
+Installation
+- To install this application you would just need to run these 3 commands from the command line: 
+bundle install
+rake db:migrate
+rake db:populate 
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+ 
+input, select {
+    max-width: 100%;
+}  
+.table-striped th a {
+    display: block;
+    color: #1D5078;
+}
+.table-striped th a.asc {
+    background-image: url("/images/sortasc.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.table-striped th a.desc {
+    background-image: url("/images/sortdesc.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.table-paginate {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+}
+.table-paginate a, .table-paginate em {
+    background: none repeat scroll 0 0 #428BCA;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+.table-paginate a:hover, .table-paginate a.current, .table-paginate em:hover, .table-paginate em.current {
+    background: none repeat scroll 0 0 #1D5078;
+    font-style: normal;
+    color: #FFFFFF;
+}
+

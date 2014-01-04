@@ -1,0 +1,31 @@
+<h3>Recent Job Listings</h3>
+  <%# stored for sorting persistence %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <div class="table-paginate"> <%= will_paginate @job_listings %></div>
+
+  <% if @job_listings.count == 0 %>
+    <div>No job entries found!</div>
+  <% else %>
+    <table class="table table-striped sortable ">
+      <tr>
+        <th><%= sortable "title" %></th>
+        <th><%= sortable "department" %></th>
+        <th><%= sortable "published", "Published" %></th>
+        <th><%= "Description" %></th>
+      </tr>
+      <% for job_listing in @job_listings %>
+        <tr>
+          <td><%= link_to job_listing.title, job_listing.link, target: "_blank" %></td>
+          <td class="department"><%= job_listing.department %></td>
+          <td><%= job_listing.published.strftime("%B %e, %Y") %></td>
+          <td><%= content_tag :a, "View Description", :href => "#modal-#{job_listing.id}", :class => 'btn', :data => {:toggle => 'modal'} %></td>
+        </tr>
+        <%# description info for entries to be used in modal popup %>
+        <%= modal_dialog :id => "modal-#{job_listing.id}",
+           :header => { :show_close => true, :dismiss => 'modal', :title => job_listing.title },
+           :body   => job_listing.content
+        %> 
+      <% end %>
+    </table>
+  <% end %>

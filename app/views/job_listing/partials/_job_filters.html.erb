@@ -1,0 +1,9 @@
+<%= form_tag '/', :method => 'get', :id => "job_listings_search" do %>
+  <p>
+    <h6>Search:</h6>
+    <%= text_field_tag :search, params[:search] %>
+    <h6>By Department:</h6> 
+    <span>(Hold Ctrl key to select multiple)</span>
+    <%= select("job_listing", "department", JobListing.all.collect {|j| [ j.department, j.department ] }, { :include_blank => 'All'}, {:multiple => true, :size =>10 }) %>
+  </p>
+<% end %>
